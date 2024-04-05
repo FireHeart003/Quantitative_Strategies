@@ -1,6 +1,5 @@
 # Import necessary libraries
 # yfinance for dataset, pandas for analysis
-from math import sqrt
 import pandas as pd
 import yfinance as yf
 import seaborn as sns
@@ -33,7 +32,6 @@ lags = ar_select_order(a_df['Adj Close'], 2)  # Calculate lag(weekends close)
 # Create the model using AutoRegression
 model = AutoReg(a_df, lags.ar_lags)
 model_fit = model.fit()
-print(model_fit.summary())
 
 rows = len(a_df)  # 1555 rows
 perc = (rows * 0.8)  # 80%: 1244
